@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body,*{
+  cursor: none;
+}
+
 /* App.css */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -58,4 +62,17 @@ Add to App.css
 }
 html {
   scroll-behavior: smooth;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #ff008c;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference; /* looks cool on dark bg */
 }

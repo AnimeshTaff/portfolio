@@ -4,10 +4,12 @@ import Home from "./pages/Home";
 import WebDesign from "./pages/WebDesign";
 import Development from "./pages/Development";
 import Deployment from "./pages/Deployment";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <Navbar />
       <Routes>
         {/* Main Home Page */}
