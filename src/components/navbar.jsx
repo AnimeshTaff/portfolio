@@ -1,22 +1,36 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleScroll = (id) => {
     setActive(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+
+    // If user is not on the home page, navigate to it first
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <nav className="flex justify-between items-center px-12 py-5 bg-gray-900 text-white shadow-md sticky top-0 z-50">
       {/* Logo */}
-      <h1 className="text-xl font-semibold tracking-wide">
+      <h1
+        className="text-xl font-semibold tracking-wide cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         WEL<span className="text-red-600">COME</span>
       </h1>
 
@@ -51,32 +65,40 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             className={`flex items-center gap-2 pb-1 border-b-2 ${
-              active === "services" ? "border-red-500 text-red-500" : "border-transparent"
+              active === "services"
+                ? "border-red-500 text-red-500"
+                : "border-transparent"
             } hover:border-red-500 hover:text-red-500 transition-all`}
           >
             Services <ChevronDown size={18} />
           </button>
 
           {open && (
-            <div className="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden z-50">
-              <a
-                href="#"
+            <div
+              onMouseLeave={() => setOpen(false)}
+              className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden z-50"
+            >
+              <Link
+                to="/web-design"
                 className="block px-4 py-2 hover:bg-gray-100 transition"
+                onClick={() => setOpen(false)}
               >
                 Web Design
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/development"
                 className="block px-4 py-2 hover:bg-gray-100 transition"
+                onClick={() => setOpen(false)}
               >
                 Development
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/deployment"
                 className="block px-4 py-2 hover:bg-gray-100 transition"
+                onClick={() => setOpen(false)}
               >
                 Deployment
-              </a>
+              </Link>
             </div>
           )}
         </div>
