@@ -65,7 +65,7 @@ export default function WebDesign() {
       </div>
 
       {/* Tools Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 p-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 p-8 max-w-6xl mx-auto">
         {tools.map((tool) => (
           <motion.div
             key={tool.name}
@@ -98,7 +98,7 @@ export default function WebDesign() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="relative bg-white/10 border border-white/20 rounded-3xl p-10 w-[90%] max-w-3xl text-white
+              className="relative bg-white/10 border border-white/20 rounded-3xl p-10 w-[95%] max-w-3xl text-white
               shadow-2xl backdrop-blur-md overflow-hidden"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -108,7 +108,7 @@ export default function WebDesign() {
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 bg-black/60 rounded-full p-2 hover:bg-black/80 transition"
+                className="absolute top-4 right-4 bg-black/60 rounded-full p-2 hover:bg-red-600"
               >
                 <X size={22} />
               </button>
