@@ -9,7 +9,7 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import AboutUs from "../components/about";
 import AnimatedTitle from "../components/AnimatedTitle";
 import ContactUs from "../components/Contact";
