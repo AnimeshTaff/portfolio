@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import Navbar from "../components/Navbar";
 import ContactUs from "../components/Contact";
 
 const tools = [
@@ -55,7 +54,7 @@ export default function WebDesign() {
     <div className="min-h-screen bg-gray-900 text-white relative">
       
       {/* Heading */}
-      <div className="text-center pt-24 pb-10">
+      <div className="text-center pt-10 pb-10">
         <h1 className="text-4xl font-bold tracking-wide">
           Web Design <span className="text-pink-500">Tools</span>
         </h1>
