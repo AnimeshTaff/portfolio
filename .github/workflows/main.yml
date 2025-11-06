@@ -1,29 +1,34 @@
-name: Deploy React App to AWS S3 and CloudFront
+name: Deploy Vite App to AWS S3
 
 on:
   push:
     branches:
-      - main  # Runs when you push to main branch
+      - main  # Trigger deployment only when code is pushed to main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout your source code
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      # 2️⃣ Setup Node.js
       - name: Use Node.js v22.16.0
         uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build React app
+      # 4️⃣ Build your Vite app (creates dist/ folder)
+      - name: Build app
         run: npm run build
 
+      # 5️⃣ Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -31,15 +36,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Install AWS CLI
-        run: sudo apt-get install -y awscli
-
+      # 6️⃣ Deploy the dist/ folder to your S3 bucket
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://${{ secrets.AWS_S3_BUCKET }}/ --delete
-
-      - name: Invalidate CloudFront cache
-        if: success()
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+        run: aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
