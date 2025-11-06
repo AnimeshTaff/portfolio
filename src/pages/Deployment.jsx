@@ -52,7 +52,7 @@ export default function Deployment() {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button onClick={() => setSelected(null)} className="absolute top-4 right-4 bg-black/60 rounded-full p-2">
+              <button onClick={() => setSelected(null)} className="absolute top-4 right-4 hover:bg-red-600 rounded-full p-2">
                 <X size={22} />
               </button>
               <div className="flex flex-col items-center gap-6 text-center">
