@@ -18,8 +18,22 @@ jobs:
         with:
           node-version: '22.16.0'
 
+      # 🔹 Clean build and dependency caches
+      - name: Clean caches and previous builds
+        run: |
+          echo "🧹 Cleaning old build and cache folders..."
+          rm -rf build dist .vite node_modules
+          npm cache clean --force
+
       - name: Install dependencies
         run: npm install
+
+      # 🔹 Optional: Check for case mismatches that can break Linux builds
+      - name: Check case-sensitive imports
+        run: |
+          echo "🔍 Checking for incorrect case in imports..."
+          grep -R "import .*components" src/pages || true
+          ls -R src/components
 
       - name: Build React app
         run: npm run build
