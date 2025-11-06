@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import ContactUs from "../components/Contactontact";
+import ContactUs from "../components/Contact";
 
 const devTools = [
   { name: "Node.js", img: "/nodejs.png", desc: "Node.js enables server-side JavaScript for scalable backend applications." },
