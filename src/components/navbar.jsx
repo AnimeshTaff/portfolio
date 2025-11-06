@@ -10,8 +10,6 @@ export default function Navbar() {
 
   const handleScroll = (id) => {
     setActive(id);
-
-    // If user is not on the home page, navigate to it first
     if (location.pathname !== "/") {
       navigate("/");
       setTimeout(() => {
@@ -76,29 +74,28 @@ export default function Navbar() {
           {open && (
             <div
               onMouseLeave={() => setOpen(false)}
-              className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-44 backdrop-blur-md bg-white/20 
+              border border-white/30 text-white rounded-xl shadow-lg overflow-hidden 
+              z-50 transition-all duration-300"
             >
-              <Link
-                to="/web-design"
-                className="block px-4 py-2 hover:bg-gray-100 transition"
-                onClick={() => setOpen(false)}
-              >
-                Web Design
-              </Link>
-              <Link
-                to="/development"
-                className="block px-4 py-2 hover:bg-gray-100 transition"
-                onClick={() => setOpen(false)}
-              >
-                Development
-              </Link>
-              <Link
-                to="/deployment"
-                className="block px-4 py-2 hover:bg-gray-100 transition"
-                onClick={() => setOpen(false)}
-              >
-                Deployment
-              </Link>
+              {[
+                { path: "/web-design", label: "Web Design" },
+                { path: "/development", label: "Development" },
+                { path: "/deployment", label: "Deployment" },
+              ].map(({ path, label }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={() => setOpen(false)}
+                  className="relative block px-4 py-2 font-medium text-white overflow-hidden
+                  before:absolute before:inset-0 before:rounded-md before:border-[2px] before:border-transparent 
+                  before:transition-all before:duration-500 hover:before:border-[2px] hover:before:border-pink-500
+                  hover:before:shadow-[0_0_15px_3px_rgba(255,0,150,0.5)]
+                  hover:bg-white/10"
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           )}
         </div>
