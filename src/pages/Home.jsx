@@ -12,7 +12,8 @@ import { useRef, useState } from "react";
 import Navbar from "../components/navbar";
 import AboutUs from "../components/about";
 import AnimatedTitle from "../components/AnimatedTitle";
-import ContactUs from "../components/Contact";
+import ContactUs from "../components/Contact.jsx";
+
 
 export default function Home() {
   const [selectedCard, setSelectedCard] = useState(null);
