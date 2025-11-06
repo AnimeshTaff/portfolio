@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import ContactUs from "../components/Contact.jsx";
 
 
 
@@ -129,9 +130,9 @@ export default function WebDesign() {
         )}
       </AnimatePresence>
 
-      {/* <section id="contact">
+      <section id="contact">
         <ContactUs />
-      </section> */}
+      </section>
 
     </div>
   );
