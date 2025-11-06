@@ -4,12 +4,12 @@ import { X } from "lucide-react";
 import ContactUs from "../components/Contact";
 
 const devTools = [
-  { name: "Node.js", img: "/node.png", desc: "Node.js enables server-side JavaScript for scalable backend applications." },
+  { name: "Node.js", img: "/nodejs.png", desc: "Node.js enables server-side JavaScript for scalable backend applications." },
   { name: "Express", img: "/express.png", desc: "Express.js simplifies backend routing and middleware management." },
   { name: "MongoDB", img: "/mongodb.png", desc: "MongoDB is a NoSQL database used for flexible and high-performance storage." },
   { name: "MySQL", img: "/mysql.png", desc: "MySQL is a reliable SQL database ideal for structured, relational data." },
-  { name: "Strapi", img: "/strapi.png", desc: "" },
-  { name: "REST API", img: "/api.png", desc: "RESTful APIs connect frontend and backend seamlessly using HTTP methods." },
+  { name: "Strapi", img: "/strapi.png", desc: "Strapi is a modern open-source Headless CMS that enables flexible content management and API creation. It allows developers to build fast, scalable backends with complete control over data and structure." },
+  { name: "REST API", img: "/restapi.png", desc: "RESTful APIs connect frontend and backend seamlessly using HTTP methods." },
   { name: "Postman", img: "/postman.png", desc: "Postman helps test, debug, and document APIs effectively." },
 ];
 

@@ -6,7 +6,7 @@ import ContactUs from "../components/Contact";
 const deployTools = [
 
   { name: "AWS", img: "/aws.png", desc: "Amazon Web Services supports scalable cloud infrastructure for full-stack applications." },
-  { name: "GitHub Actions", img: "/github-actions.png", desc: "Automate CI/CD pipelines directly from your GitHub repositories." },
+  { name: "GitHub Actions", img: "/gitaction.png", desc: "Automate CI/CD pipelines directly from your GitHub repositories." },
 ];
 
 export default function Deployment() {
