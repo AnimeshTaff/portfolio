@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Navbar from "../components/Navbar";
+import ContactUs from "../components/Contact";
 
 const tools = [
   {
@@ -127,6 +128,11 @@ export default function WebDesign() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <section id="contact">
+        <ContactUs />
+      </section>
+
     </div>
   );
 }
