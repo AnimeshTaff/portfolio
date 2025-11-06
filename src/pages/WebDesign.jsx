@@ -129,9 +129,9 @@ export default function WebDesign() {
         )}
       </AnimatePresence>
 
-      <section id="contact">
+      {/* <section id="contact">
         <ContactUs />
-      </section>
+      </section> */}
 
     </div>
   );

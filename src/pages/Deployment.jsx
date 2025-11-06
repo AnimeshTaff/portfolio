@@ -66,9 +66,9 @@ export default function Deployment() {
         )}
       </AnimatePresence>
 
-          <section id="contact">
+          {/* <section id="contact">
         <ContactUs />
-      </section>
+      </section> */}
 
     </div>
   );

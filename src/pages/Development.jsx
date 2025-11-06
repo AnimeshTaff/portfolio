@@ -70,9 +70,9 @@ export default function Development() {
         )}
       </AnimatePresence>
 
-          <section id="contact">
+          {/* <section id="contact">
         <ContactUs />
-      </section>
+      </section> */}
       
     </div>
   );
